@@ -3,6 +3,9 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * OGGETTO PADRE
+ */
 public class House 
 {
     private static void exitProgram()
@@ -32,6 +35,36 @@ public class House
 
         if(!isValid())
             exitProgram();
+    }
+
+    public ArrayList<Room> getRooms()
+    {
+        return rooms;
+    }
+
+    /**
+     * Quando aggiungo una STANZA le dico chi è la sua CASA
+     * @param r
+     */
+    public void addRoom(Room r)
+    {
+        rooms.add(r);//CASA hai nuova STANZA
+        r.setMyHouse(this);//Stanza questa è la tua casa
+    }
+
+    public Integer getArea()
+    {
+        Integer res = 0;
+
+        for(Room r: rooms)
+            res+=r.getArea();//getArea di Room
+            
+        return res;
+    }
+
+    public Integer getPrice()
+    {
+        return smp * this.getArea();//getArea di House
     }
 
     public String getCity() 

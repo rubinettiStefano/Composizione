@@ -2,6 +2,7 @@ package model;
 
 /**
  * Io sono una stanza, faccio parte di una casa
+ * OGGETTO FIGLIO
  */
 public class Room 
 {
@@ -14,6 +15,7 @@ public class Room
     }
 
     private Integer side1,side2;
+    private House myHouse;//RIFERIMENTO AL PADRE
     private String type;
 
     public Room(Integer side1,Integer side2,String type)
@@ -24,6 +26,15 @@ public class Room
 
         if(!isValid())
             exitProgram();
+    }
+
+
+    public House getMyHouse() {
+        return myHouse;
+    }
+
+    public void setMyHouse(House myHouse) {
+        this.myHouse = myHouse;
     }
 
     public Integer getSide1() {
