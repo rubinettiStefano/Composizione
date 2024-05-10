@@ -38,6 +38,20 @@ public class House
             exitProgram();
     }
 
+    public House(String csv ) 
+    {
+        String[] parts = csv.split(",");
+        this.id                 = Integer.parseInt(parts[0]);
+        this.city               = parts[1];
+        this.address            = parts[2];
+        this.smp                = Integer.parseInt(parts[3]);
+        this.constructionDate   = LocalDate.parse(parts[4]);
+        this.rooms              = new ArrayList<>();
+
+        if(!isValid())
+            exitProgram();
+    }
+
     
 
     public Integer getId() {
