@@ -14,6 +14,7 @@ public class House
         System.exit(-1);
     }
 
+    private Integer id;
     private String city,address;
     private  LocalDate constructionDate;
     private ArrayList<Room> rooms;
@@ -36,6 +37,20 @@ public class House
         if(!isValid())
             exitProgram();
     }
+
+    
+
+    public Integer getId() {
+        return id;
+    }
+
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
 
     public ArrayList<Room> getRooms()
     {

@@ -13,9 +13,10 @@ public class Room
         System.out.println("Invalid Data for Room, program terminated");
         System.exit(-1);
     }
-
+    private Integer id;
     private Integer side1,side2;
     private House myHouse;//RIFERIMENTO AL PADRE
+    private Integer house_id;//CHIAVE ESTERNA
     private String type;
 
     public Room(Integer side1,Integer side2,String type)
@@ -28,13 +29,49 @@ public class Room
             exitProgram();
     }
 
+    public Room(String csv)
+    {
+
+        String[] parti = csv.split(",");
+        this.id = Integer.parseInt(parti[0]);
+        this.side1 = Integer.parseInt(parti[1]);
+        this.side2 = Integer.parseInt(parti[2]);
+        this.type = parti[3];
+        this.house_id = Integer.parseInt(parti[4]);
+
+        if(!isValid())
+            exitProgram();
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+    public Integer getHouse_id() {
+        return house_id;
+    }
+
+
+    public void setHouse_id(Integer house_id) {
+        this.house_id = house_id;
+    }
+
 
     public House getMyHouse() {
         return myHouse;
     }
 
-    public void setMyHouse(House myHouse) {
+    public void setMyHouse(House myHouse) 
+    {
         this.myHouse = myHouse;
+        this.house_id = myHouse.getId();
     }
 
     public Integer getSide1() {
